@@ -32,9 +32,9 @@ c. Email (mandatory, string)
 d. Monthly Advertising Budget* (mandatory, number)
 e. Phone Number - CCV (mandatory, number)
 
-2.Using NgRx,create a state management solution that will hold our user
+ 2.Using NgRx,create a state management solution that will hold our user
 
-3.Write a Payment Service with a function that creates a Post request
+ 3.Write a Payment Service with a function that creates a Post request
 
 4. Create a new page and a new component (to be used in this page), with inputs for the DTO,
 NgRx, create a state management solution that will hold our user. a Payment service with a function that creates a POST request.
