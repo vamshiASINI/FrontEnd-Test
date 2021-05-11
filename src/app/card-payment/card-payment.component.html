@@ -1,0 +1,63 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+    <form class="form-horizontal" role="form" [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+        <fieldset>
+            <legend>Credit Card Payment</legend>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="FirstName">FirstName</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" formControlName="FirstName" placeholder="FirstName" [ngClass]="{ 'is-invalid': (formControls.FirstName.dirty || formControls.FirstName.touched) && formControls.FirstName.errors }">
+                    <div *ngIf="!formControls.FirstName.valid && (formControls.FirstName.dirty || formControls.FirstName.touched)" class="invalid-feedback">
+                        <div *ngIf="formControls.FirstName.errors" class="alert alert-danger">Invalid FirstName.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="LastName">LastName</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" formControlName="LastName" placeholder="LastName" [ngClass]="{ 'is-invalid': (formControls.LastName.dirty || formControls.LastName.touched) && formControls.LastName.errors }">
+                    <div *ngIf="!formControls.LastName.valid && (formControls.LastName.dirty || formControls.LastName.touched)" class="invalid-feedback">
+                        <div *ngIf="formControls.LastName.errors" class="alert alert-danger">Invalid LastName.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="Email">Email</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="Email" formControlName="Email" placeholder="Email" [ngClass]="{ 'is-invalid': formControls.Email.errors  && (formControls.Email.dirty || formControls.Email.touched)}">
+                    <div *ngIf="!formControls.Email.valid && (formControls.Email.dirty || formControls.Email.touched)" class="invalid-feedback">
+                        <div *ngIf="formControls.Email.errors" class="alert alert-danger">Invalid Email.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="Budget">Budget</label>
+                <div class="col-sm-9">
+                    <input class="form-control" type="text" formControlName="Budget" placeholder="Budget" [ngClass]="{ 'is-invalid': formControls.Budget.errors  && (formControls.Budget.dirty || formControls.Budget.touched)}">
+                    <div *ngIf="!formControls.Budget.valid && (formControls.Budget.dirty || formControls.Budget.touched)" class="invalid-feedback">
+                        <div *ngIf="formControls.Budget.errors" class="alert alert-danger">Invalid Budget.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="PhoneNumber">PhoneNumber</label>
+                <div class="col-sm-9">
+                    <input class="form-control" formControlName="PhoneNumber" placeholder="PhoneNumber" [ngClass]="{ 'is-invalid': formControls.PhoneNumber.errors && (formControls.PhoneNumber.dirty || formControls.PhoneNumber.touched) }">
+                    <div *ngIf="!formControls.PhoneNumber.valid && (formControls.PhoneNumber.dirty || formControls.PhoneNumber.touched)" class="invalid-feedback">
+                        <div *ngIf="formControls.PhoneNumber.errors" class="alert alert-danger">Invalid CVV / CVC Number.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn btn-success">Proceed</button>
+                </div>
+            </div>
+        </fieldset>
+        <div *ngIf="paymentForm.invalid" class="alert alert-danger">{{errorMessage}}</div>
+    </form>
+</div>
